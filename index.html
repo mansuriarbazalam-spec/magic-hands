@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Hands</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/menu.css" />
+  <link rel="stylesheet" href="/styles/hud.css" />
+</head>
+<body>
+  <!-- Layer 1 (back): Camera feed — video element added at runtime by CameraManager -->
+  <div id="camera-container"></div>
+
+  <!-- Layer 2 (mid): Hand skeleton debug overlay -->
+  <canvas id="hand-canvas"></canvas>
+
+  <!-- Layer 3 (mid): Three.js 3D scene — managed by SceneManager -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Layer 4 (front): UI overlay for menus and HUD -->
+  <div id="ui-overlay"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

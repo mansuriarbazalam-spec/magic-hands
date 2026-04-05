@@ -1,0 +1,13 @@
+export const HOLOGRAM_COLOR = 0x00d4ff;
+export const HOLOGRAM_OPACITY = 0.45;
+export const GRAB_RADIUS = 2.5;
+export const DELETE_VELOCITY = 0.2;
+export const MIN_SCALE = 0.1;
+export const MAX_SCALE = 5.0;
+export const VIEW_WIDTH = 8;
+export const VIEW_HEIGHT = 6;
+export const DEPTH_SCALE = 5;
+export const CAMERA_FOV = 60;
+export const CAMERA_NEAR = 0.1;
+export const CAMERA_FAR = 100;
+export const CAMERA_Z = 5;

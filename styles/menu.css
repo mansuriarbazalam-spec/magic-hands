@@ -1,0 +1,342 @@
+/* ========================================================================
+   CENTER MENU — Iron Man holographic radial overlay
+   ======================================================================== */
+
+.center-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 5, 15, 0.4);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.center-menu.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-panel {
+  background: rgba(0, 10, 30, 0.55);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 0 60px rgba(0, 212, 255, 0.12),
+              0 0 120px rgba(0, 212, 255, 0.05),
+              inset 0 0 40px rgba(0, 212, 255, 0.04);
+  padding: 30px 35px;
+  max-width: 480px;
+  width: 90%;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---- Header ---- */
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.menu-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: #00d4ff;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.6),
+               0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+.menu-subtitle {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(0, 212, 255, 0.35);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* ---- Sections ---- */
+
+.menu-section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.45);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ---- Object Grid (3-column) ---- */
+
+.object-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+/* ---- Menu Items ---- */
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  color: rgba(0, 212, 255, 0.7);
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: rgba(0, 212, 255, 0.03);
+  user-select: none;
+}
+
+.menu-item:hover,
+.menu-item.hovered {
+  color: #ffffff;
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4),
+              0 0 50px rgba(0, 212, 255, 0.15),
+              inset 0 0 20px rgba(0, 212, 255, 0.1);
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+  transform: scale(1.06);
+}
+
+.menu-item:active {
+  background: rgba(0, 212, 255, 0.3);
+  transform: scale(0.97);
+}
+
+/* ---- Scene Controls ---- */
+
+.scene-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.scene-controls .menu-item {
+  flex: 1;
+  padding: 12px 8px;
+  font-size: 11px;
+}
+
+/* ---- Project List (load dialog) ---- */
+
+.project-list {
+  max-height: 180px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.project-list.hidden {
+  display: none;
+}
+
+.project-list-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.5);
+  margin-bottom: 8px;
+  display: block;
+  text-align: center;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 6px;
+  color: rgba(0, 212, 255, 0.7);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-bottom: 6px;
+}
+
+.project-item:hover,
+.project-item.hovered {
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.project-item .delete-btn {
+  color: rgba(255, 80, 80, 0.6);
+  font-size: 10px;
+  cursor: pointer;
+  transition: color 0.15s;
+  margin-left: 8px;
+}
+
+.project-item .delete-btn:hover {
+  color: #ff5050;
+}
+
+.project-list-empty {
+  color: rgba(0, 212, 255, 0.3);
+  font-size: 11px;
+  font-style: italic;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* ========================================================================
+   SAVE DIALOG
+   ======================================================================== */
+
+.save-dialog-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.save-dialog-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.save-dialog {
+  background: rgba(0, 10, 30, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+  padding: 24px;
+  width: 320px;
+  font-family: 'Courier New', monospace;
+}
+
+.save-dialog-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.6);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.save-dialog-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(0, 20, 50, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 4px;
+  color: #00d4ff;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.save-dialog-input:focus {
+  border-color: rgba(0, 212, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+}
+
+.save-dialog-input::placeholder {
+  color: rgba(0, 212, 255, 0.25);
+}
+
+.save-dialog-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.save-dialog-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(0, 212, 255, 0.7);
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.save-dialog-btn:hover {
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.6);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.save-dialog-btn.primary {
+  border-color: rgba(0, 212, 255, 0.5);
+  color: #00d4ff;
+}
+
+.save-dialog-btn.primary:hover {
+  background: rgba(0, 212, 255, 0.15);
+}
+
+/* ========================================================================
+   FINGER CURSOR
+   ======================================================================== */
+
+.finger-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 212, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4),
+              0 0 20px rgba(0, 212, 255, 0.15),
+              inset 0 0 6px rgba(0, 212, 255, 0.2);
+  pointer-events: none;
+  z-index: 200;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.12s ease, height 0.12s ease, opacity 0.15s ease;
+}
+
+.finger-cursor.active {
+  opacity: 1;
+}
+
+.finger-cursor.pinching {
+  width: 12px;
+  height: 12px;
+  border-color: #00ffcc;
+  box-shadow: 0 0 14px rgba(0, 255, 204, 0.5),
+              0 0 28px rgba(0, 255, 204, 0.2),
+              inset 0 0 8px rgba(0, 255, 204, 0.3);
+}
